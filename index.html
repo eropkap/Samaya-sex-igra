@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Самая сексуальная ночь</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>🔥 Самая сексуальная ночь 🔥</h1>
+        <button class="btn" onclick="startGame()">Играть</button>
+        <button class="btn" onclick="showRules()">Правила</button>
+        <button class="btn" onclick="showSettings()">Настройки</button>
+    </div>
+
+    <div id="gameScreen" class="hidden">
+        <h2>Крути колесо, чтобы получить задание!</h2>
+        <div class="wheel-container">
+            <div id="wheel" class="wheel"></div>
+        </div>
+        <button class="btn" onclick="spinWheel()">Крутить колесо</button>
+        <div id="card" class="hidden"></div>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
