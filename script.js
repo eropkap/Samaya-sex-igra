@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let gameScreen = document.getElementById("gameScreen");
     let settingsScreen = document.getElementById("settingsScreen");
     let helpScreen = document.getElementById("helpScreen");
+    let mainScreen = document.getElementById("mainScreen");
 
     let selectedMode = null;
     let cards = {};
@@ -24,81 +25,32 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error("Ошибка загрузки JSON:", error));
 
-    function showModes() {
-        hideAllScreens();
-        modeScreen.classList.remove("hidden");
+    // Функция для показа нужного экрана
+    function showScreen(screenId) {
+        document.querySelectorAll(".screen").forEach(screen => screen.classList.add("hidden"));
+        document.getElementById(screenId).classList.remove("hidden");
     }
 
-    function openSettings() {
-        hideAllScreens();
-        settingsScreen.classList.remove("hidden");
-    }
+    function showModes() { showScreen("modeScreen"); }
+    function openSettings() { showScreen("settingsScreen"); }
+    function openHelp() { showScreen("helpScreen"); }
+    function goBack() { showScreen("mainScreen"); }
 
-    function openHelp() {
-        hideAllScreens();
-        helpScreen.classList.remove("hidden");
-    }
-
-    function hideAllScreens() {
-        modeScreen.classList.add("hidden");
-        gameScreen.classList.add("hidden");
-        settingsScreen.classList.add("hidden");
-        helpScreen.classList.add("hidden");
-    }
-
-    function selectMode(mode) {
-        selectedMode = mode;
-        hideAllScreens();
-        gameScreen.classList.remove("hidden");
-    }
-
-    function spinWheel() {
-        if (!selectedMode || !cards[selectedMode] || cards[selectedMode].length === 0) {
-            alert("Выберите режим перед тем, как крутить колесо!");
-            return;
+    // Привязка событий к кнопкам
+    function safeEventListener(id, event, func) {
+        let element = document.getElementById(id);
+        if (element) {
+            element.addEventListener(event, func);
+        } else {
+            console.error("Элемент не найден:", id);
         }
-
-        let angle = Math.floor(Math.random() * 3600) + 1800; // Случайный угол вращения
-        wheel.style.transition = "transform 4s ease-out";
-        wheel.style.transform = `rotate(${angle}deg)`;
-
-        setTimeout(() => {
-            revealCard();
-        }, 4500);
     }
 
-    function revealCard() {
-        let randomIndex = Math.floor(Math.random() * cards[selectedMode].length);
-        let selectedCard = cards[selectedMode][randomIndex];
-        let finalLocation = getFinalLocation(selectedCard.text);
+    safeEventListener("selectModeBtn", "click", showModes);
+    safeEventListener("settingsBtn", "click", openSettings);
+    safeEventListener("helpBtn", "click", openHelp);
+    safeEventListener("backBtn", "click", goBack);
 
-        cardFront.innerText = selectedCard.text;
-        cardBack.innerText = `Финиш: ${finalLocation}`;
+    console.log("Кнопки успешно привязаны!");
 
-        cardContainer.classList.remove("hidden");
-        cardContainer.classList.add("flip");
-    }
-
-    function getFinalLocation(taskText) {
-        for (let key in finalLocations.mapping) {
-            if (taskText.includes(key)) {
-                let options = finalLocations.locations[finalLocations.mapping[key]];
-                return options[Math.floor(Math.random() * options.length)];
-            }
-        }
-        let allOptions = Object.values(finalLocations.locations).flat();
-        return allOptions[Math.floor(Math.random() * allOptions.length)];
-    }
-
-    function goBack() {
-        hideAllScreens();
-        modeScreen.classList.remove("hidden");
-    }
-
-    window.spinWheel = spinWheel;
-    window.selectMode = selectMode;
-    window.goBack = goBack;
-    window.showModes = showModes;
-    window.openSettings = openSettings;
-    window.openHelp = openHelp;
 });
