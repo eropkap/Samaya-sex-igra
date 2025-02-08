@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let cardContainer = document.getElementById("cardContainer");
     let cardFront = document.querySelector(".card-front");
     let cardBack = document.querySelector(".card-back");
-    let spinButton = document.querySelector(".btn-spin");
+    let spinButton = document.getElementById("spinButton");
 
     let modeScreen = document.getElementById("modeScreen");
     let gameScreen = document.getElementById("gameScreen");
@@ -21,7 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             cards = data.cards;
             finalLocations = data.final_locations;
-        });
+        })
+        .catch(error => console.error("Ошибка загрузки JSON:", error));
 
     function showModes() {
         hideAllScreens();
