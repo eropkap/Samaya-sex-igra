@@ -10,9 +10,19 @@
 <body>
     <div class="container">
         <h1 class="title">🔥 Самая сексуальная ночь 🔥</h1>
-        <button class="btn glow" onclick="startGame()">Играть</button>
+        <button class="btn glow" onclick="showModes()">Выбрать режим</button>
         <button class="btn" onclick="showSettings()">⚙️ Настройки</button>
         <button class="btn" onclick="showHelp()">ℹ️ Справка</button>
+    </div>
+
+    <div id="modeScreen" class="hidden">
+        <h2>Выбери режим</h2>
+        <button class="btn" onclick="startGame('hard_extreme')">Жесткий и экстремальный</button>
+        <button class="btn" onclick="startGame('full_control')">Полный контроль</button>
+        <button class="btn" onclick="startGame('experimental')">Экспериментальный</button>
+        <button class="btn" onclick="startGame('no_penetration')">Без проникновения</button>
+        <button class="btn" onclick="startGame('silent_mode')">Без слов</button>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
     </div>
 
     <div id="gameScreen" class="hidden">
@@ -30,6 +40,25 @@
                 <div class="card-back"></div>
             </div>
         </div>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="settingsScreen" class="hidden">
+        <h2>Настройки</h2>
+        <p>🔊 Звук: <button class="btn" onclick="toggleSound()">Вкл/Выкл</button></p>
+        <p>🎨 Тема: <button class="btn" onclick="toggleTheme()">Сменить</button></p>
+        <p>⏳ Время игры: 
+            <button class="btn" onclick="setGameTime(10)">10 мин</button>
+            <button class="btn" onclick="setGameTime(20)">20 мин</button>
+            <button class="btn" onclick="setGameTime(30)">30 мин</button>
+        </p>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="helpScreen" class="hidden">
+        <h2>Справка</h2>
+        <p>Выберите режим, крутите колесо и выполняйте задания.</p>
+        <p>Некоторые карточки могут включать порно-сценарии для повторения.</p>
         <button class="btn back-btn" onclick="goBack()">Назад</button>
     </div>
 
