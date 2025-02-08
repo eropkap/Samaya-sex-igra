@@ -49,25 +49,6 @@ body {
     position: relative;
 }
 
-.wheel img {
-    width: 100%;
-    height: auto;
-    max-width: 200px;
-}
-
-.pointer {
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
-    z-index: 2;
-}
-
 .card {
     width: 320px;
     height: 220px;
@@ -77,7 +58,6 @@ body {
     cursor: pointer;
     transform-style: preserve-3d;
     transition: transform 1s ease-in-out;
-    z-index: 3;
 }
 
 .card div {
@@ -104,10 +84,4 @@ body {
 
 #gameScreen {
     position: relative;
-    z-index: 1;
-}
-
-.back-btn {
-    margin-top: 20px;
-    background: #444;
 }
