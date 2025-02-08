@@ -34,11 +34,14 @@ function spinWheel() {
     let finalLocation = finalLocations[Math.floor(Math.random() * finalLocations.length)];
     let bodyLocation = bodyLocations[Math.floor(Math.random() * bodyLocations.length)];
 
-    document.getElementById("wheel").classList.add("spin");
+    let wheel = document.getElementById("wheel");
+    let card = document.getElementById("card");
+
+    wheel.classList.add("spin");
     setTimeout(() => {
-        document.getElementById("wheel").classList.remove("spin");
-        document.getElementById("card").innerHTML = `<h2>${task}</h2><p>Финал: ${finalLocation} – ${bodyLocation}</p>`;
-        document.getElementById("card").classList.remove("hidden");
+        wheel.classList.remove("spin");
+        card.innerHTML = `<h2>${task}</h2><p>Финал: ${finalLocation} – ${bodyLocation}</p>`;
+        card.classList.add("show");
     }, 2000);
 }
 
