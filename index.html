@@ -8,10 +8,15 @@
     <script src="script.js" defer></script>
 </head>
 <body>
+    <audio id="background-music" loop>
+        <source src="sensual_music.mp3" type="audio/mpeg">
+    </audio>
+
     <div class="container">
         <h1 class="title">🔥 Самая сексуальная ночь 🔥</h1>
         <button class="btn glow" onclick="showModes()">Выбрать режим</button>
-        <button class="btn" onclick="goBack()">Назад</button>
+        <button class="btn" onclick="openSettings()">Настройки</button>
+        <button class="btn" onclick="openHelp()">Справка</button>
     </div>
 
     <div id="modeScreen" class="hidden">
@@ -19,7 +24,10 @@
         <button class="btn" onclick="startGame('for_him')">Для него</button>
         <button class="btn" onclick="startGame('for_her')">Для неё</button>
         <button class="btn" onclick="startGame('super_cards')">Супер-карты</button>
-        <button class="btn" onclick="startGame('mixed_mode')">Общий режим</button>
+        <button class="btn" onclick="startGame('roleplay')">Ролевой режим</button>
+        <button class="btn" onclick="startGame('porn_replay')">Порно-повтор</button>
+        <button class="btn" onclick="startGame('positions')">Позы</button>
+        <button class="btn" onclick="startGame('combined_mode')">Общий режим</button>
         <button class="btn back-btn" onclick="goBack()">Назад</button>
     </div>
 
@@ -32,11 +40,25 @@
         <button class="btn back-btn" onclick="goBack()">Назад</button>
     </div>
 
+    <div id="settingsScreen" class="hidden">
+        <h2>Настройки</h2>
+        <button class="btn" onclick="toggleSound()">Включить/Выключить звук</button>
+        <button class="btn" onclick="toggleTheme()">Сменить тему</button>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="helpScreen" class="hidden">
+        <h2>Справка</h2>
+        <p>Крути колесо, выполняй задания и наслаждайся игрой!</p>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
     <div id="cardContainer" class="hidden">
         <div class="card" id="card">
             <div class="card-front"></div>
             <div class="card-back"></div>
         </div>
     </div>
+
 </body>
 </html>

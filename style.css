@@ -81,7 +81,3 @@ body {
 .card.flip {
     transform: rotateY(180deg);
 }
-
-#gameScreen {
-    position: relative;
-}
