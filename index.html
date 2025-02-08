@@ -11,6 +11,8 @@
     <div class="container">
         <h1 class="title">🔥 Самая сексуальная ночь 🔥</h1>
         <button class="btn glow" onclick="startGame()">Играть</button>
+        <button class="btn" onclick="showSettings()">⚙️ Настройки</button>
+        <button class="btn" onclick="showHelp()">ℹ️ Справка</button>
     </div>
 
     <div id="gameScreen" class="hidden">
@@ -28,6 +30,20 @@
                 <div class="card-back"></div>
             </div>
         </div>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="settingsScreen" class="hidden">
+        <h2>Настройки</h2>
+        <p>🔊 Звук: <button class="btn" onclick="toggleSound()">Вкл/Выкл</button></p>
+        <p>🎨 Тема: <button class="btn" onclick="toggleTheme()">Светлая/Темная</button></p>
+        <button class="btn back-btn" onclick="goBack()">Назад</button>
+    </div>
+
+    <div id="helpScreen" class="hidden">
+        <h2>Справка</h2>
+        <p>Это игра для пар, созданная для возбуждающих ночей.</p>
+        <p>Крути колесо, получай задания и наслаждайся моментом!</p>
         <button class="btn back-btn" onclick="goBack()">Назад</button>
     </div>
 
