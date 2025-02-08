@@ -49,13 +49,10 @@ body {
     position: relative;
 }
 
-.wheel {
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    position: relative;
-    box-shadow: 0px 0px 50px rgba(255, 65, 108, 1);
-    z-index: 1;
+.wheel img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
 }
 
 .pointer {
